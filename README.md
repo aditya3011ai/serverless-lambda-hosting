@@ -2,7 +2,7 @@
 
 A simple contact form built using AWS Serverless services.
 
-![Image](serverless-png)
+![Image](serverless-png.png)
 
 ## 🧰 Tech Stack
 - **Frontend**: HTML, CSS, JavaScript (hosted on S3)
