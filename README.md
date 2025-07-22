@@ -6,53 +6,57 @@ A simple contact form built using AWS Serverless services.
 
 ![Image](serverless-png.png)
 
-## 🧰 Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (hosted on S3)
-- **Backend**: AWS Lambda + API Gateway
-- **Database**: DynamoDB
-- **Deployment**: AWS CLI
+## 🚀 Features
 
-## 🔧 Architecture
+- 📩 Submits contact form data via a REST API (API Gateway)
+- 🧠 Serverless backend logic (AWS Lambda)
+- 🗃️ Stores user data in DynamoDB
+- 📧 Sends email notifications using AWS SNS
+- 🌐 Frontend hosted on AWS S3 (static website)
+- ✅ Built with AWS Free Tier — no cost for personal/demo use
+- 🔒 CORS enabled for browser-based submissions
 
-User (Browser)
-↓
-S3 (Static Website)
-↓
-API Gateway (HTTP API)
-↓
-Lambda (Node.js)
-↓
-DynamoDB (Stores form data)
+---
 
-## 💡 Features
-- Fully serverless and scalable
-- Form validation and real-time submission
-- CORS handled for cross-domain requests
-- Clean and modern UI
+## 🛠️ Technologies & AWS Services
 
-## 🚀 How to Deploy
+- **AWS Lambda** – Runs backend code serverlessly
+- **API Gateway** – Exposes HTTP endpoint
+- **DynamoDB** – Stores form data (name, email, message)
+- **SNS** – Sends email notifications
+- **S3** – Hosts static frontend (HTML/CSS/JS)
 
-1. **Frontend**  
-   Upload `frontend/` to your S3 bucket and enable static website hosting.
+---
 
-2. **Backend (Lambda)**  
-   - Zip your `handler.js`, `package.json`, and `node_modules`  
-   - Deploy with:
-     ```bash
-     aws lambda update-function-code \
-       --function-name storeContactForm \
-       --zip-file fileb://lambda.zip
-     ```
+## 📂 Folder Structure
 
-3. **API Gateway**  
-   Create HTTP API with CORS and connect to Lambda.
+📁 serverless-contact-form/
+├── lambda/
+│ └── index.js # Main Lambda function code
+├── frontend/
+│ ├── index.html # Contact form frontend
+│ └── script.js # JS to call API
+├── README.md
+└── template.yaml # (Optional) SAM or CloudFormation template
 
-4. **DynamoDB**  
-   Create table `ContactForm` with `email` as partition key.
+---
 
-## 🧪 Sample Test
+## 🧪 API Endpoint
 
-```bash
-curl -X POST https://<api-url>/submit \
-  -H "Content-Type: application/json" \
-  -d '{"name":"Aditya","email":"aditya@example.com","message":"Hello"}'
+POST /submit
+
+
+### Request Body (JSON):
+```
+json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "message": "Hello! I'm interested in your services."
+}
+Response:
+json
+{
+  "message": "Data stored successfully"
+}
+```
