@@ -1,4 +1,3 @@
-['serverless-png']
 # Serverless Contact Form using AWS
 
 Link - http://serverless-fronted-aditya3011ai.s3-website.ap-south-1.amazonaws.com
