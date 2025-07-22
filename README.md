@@ -1,3 +1,4 @@
+['serverless-png']
 # Serverless Contact Form using AWS
 
 A simple contact form built using AWS Serverless services.

@@ -8,7 +8,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
   };
 
   try {
-    const response = await fetch("https://s6aq9g6fu8.execute-api.ap-south-1.amazonaws.com/submit", {
+    const response = await fetch("https://4z53triy3j.execute-api.ap-south-1.amazonaws.com/prod/submit ", {
       method: "POST",
       headers: { "content-Type": "application/json" },
       body: JSON.stringify(data)
